@@ -1,0 +1,15 @@
+[package]
+name = "edcock"
+version = "0.1.0"
+authors = ["PhdTrollSlayer <rodrigomauricio@protonmail.com>"]
+edition = "2018"
+
+[dependencies]
+gdk = "0.10.0"
+image = "0.21.1"
+tempfile = "3"
+
+[dependencies.gtk]
+version = "0.6.0"
+features = ["v3_16"]
+
