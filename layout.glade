@@ -40,19 +40,6 @@
                 <property name="can_focus">False</property>
                 <property name="column_spacing">8</property>
                 <child>
-                  <object class="GtkFileChooserButton" id="escolha1">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="filter">filefilter1</property>
-                    <property name="title" translatable="yes"/>
-                    <property name="width_chars">20</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">1</property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkFileChooserButton" id="escolha2">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -111,6 +98,18 @@
                   <packing>
                     <property name="left_attach">1</property>
                     <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="escolha1">
+                    <property name="label" translatable="yes">Escolha a pasta</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">1</property>
                   </packing>
                 </child>
                 <child>
@@ -190,7 +189,7 @@
                   <object class="GtkLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Final</property>
+                    <property name="label" translatable="yes">Pasta de destino</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -198,9 +197,11 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry" id="nomefinal">
+                  <object class="GtkButton" id="escolhafinal">
+                    <property name="label" translatable="yes">Escolher</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -297,15 +298,6 @@
             <property name="left_attach">2</property>
             <property name="top_attach">0</property>
           </packing>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
         </child>
       </object>
     </child>
