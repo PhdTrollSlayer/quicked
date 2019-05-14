@@ -95,21 +95,26 @@ fn main() {
     }));
 
     preview_button.connect_clicked(clone! (u => move |_| {
-        let mut img1 = image::open(Path::new(&u.0.borrow().clone())).unwrap();
-        let mut img2 = image::open(Path::new(&u.1.borrow().clone())).unwrap();
+        let final_path = u.4.borrow().get_text().unwrap();
+        if !final_path.as_str().is_empty() {
+            let mut img1 = image::open(Path::new(&u.0.borrow().clone())).unwrap();
+            let mut img2 = image::open(Path::new(&u.1.borrow().clone())).unwrap();
 
-        img2 = img2.resize_exact(img1.to_rgba().width(), img2.to_rgba().height(), image::FilterType::Nearest);
+            img2 = img2.resize_exact(img1.as_rgba8().unwrap().width(), img2.as_rgba8().unwrap().height(), image::FilterType::Nearest);
 
-        let top = img1.to_rgba().height() - img2.to_rgba().height();
+            let top = img1.as_rgba8().unwrap().height() - img2.as_rgba8().unwrap().height();
+            println!("teste 2");
 
-        imageops::overlay(&mut img1, &img2, 0, top);
+            imageops::overlay(&mut img1, &img2, 0, top);
 
-        let mut tmp = File::create("tmp.png").unwrap();
-        img1.resize(900, 800, image::FilterType::Nearest).write_to(&mut tmp, image::ImageOutputFormat::PNG).unwrap();
+            let mut tmp = File::create("tmp.png").unwrap();
+            img1.resize(500, 400, image::FilterType::Nearest).write_to(&mut tmp, image::ImageOutputFormat::PNG).unwrap();
+            println!("teste 3");
 
-        u.5.borrow().set_from_file(Path::new("tmp.png"));
-        std::fs::remove_file("tmp.png").unwrap();
-        preview_window.borrow().show_all();
+            u.5.borrow().set_from_file(Path::new("tmp.png"));
+            std::fs::remove_file("tmp.png").unwrap();
+            preview_window.borrow().show_all();
+        }
     }));
 
     merge_button.connect_clicked(clone! (u => move |_| {
@@ -118,9 +123,10 @@ fn main() {
             let mut img1 = image::open(Path::new(&u.0.borrow().clone())).unwrap();
             let mut img2 = image::open(Path::new(&u.1.borrow().clone())).unwrap();
 
-            img2 = img2.resize_exact(img1.to_rgba().width(), img2.to_rgba().height(), image::FilterType::Nearest);
 
-            let top = img1.to_rgba().height() - img2.to_rgba().height();
+            img2 = img2.resize_exact(img1.to_rgba().unwrap().width(), img2.to_rgba().unwrap().height(), image::FilterType::Nearest);
+
+            let top = img1.to_rgba().unwrap().height() - img2.to_rgba().unwrap().height();
 
             imageops::overlay(&mut img1, &img2, 0, top);
 

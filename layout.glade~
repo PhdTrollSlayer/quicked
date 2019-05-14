@@ -14,6 +14,7 @@
   </object>
   <object class="GtkWindow" id="janela">
     <property name="can_focus">False</property>
+    <property name="title" translatable="yes">QuickEd</property>
     <property name="window_position">center</property>
     <property name="gravity">south-east</property>
     <property name="has_resize_grip">True</property>
@@ -48,7 +49,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">0</property>
+                    <property name="top_attach">1</property>
                   </packing>
                 </child>
                 <child>
@@ -61,7 +62,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
-                    <property name="top_attach">0</property>
+                    <property name="top_attach">1</property>
                   </packing>
                 </child>
                 <child>
@@ -73,7 +74,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
-                    <property name="top_attach">0</property>
+                    <property name="top_attach">1</property>
                   </packing>
                 </child>
                 <child>
@@ -85,8 +86,36 @@
                   </object>
                   <packing>
                     <property name="left_attach">3</property>
+                    <property name="top_attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Abrir fotos</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
                     <property name="top_attach">0</property>
                   </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Selo</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
                 </child>
               </object>
               <packing>
@@ -121,6 +150,9 @@
                     <property name="can_focus">False</property>
                     <property name="wrap">True</property>
                     <property name="wrap_mode">char</property>
+                    <property name="ellipsize">start</property>
+                    <property name="width_chars">30</property>
+                    <property name="max_width_chars">30</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -178,12 +210,6 @@
                 <property name="left_attach">0</property>
                 <property name="top_attach">1</property>
               </packing>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
             </child>
           </object>
           <packing>
@@ -270,11 +296,21 @@
             <property name="top_attach">0</property>
           </packing>
         </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
       </object>
     </child>
   </object>
   <object class="GtkWindow" id="preview_window">
     <property name="can_focus">False</property>
+    <property name="title" translatable="yes">QuickEd (Preview)</property>
     <property name="deletable">False</property>
     <child>
       <placeholder/>
@@ -285,8 +321,6 @@
         <property name="can_focus">False</property>
         <child>
           <object class="GtkImage" id="preview_image">
-            <property name="width_request">500</property>
-            <property name="height_request">400</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="stock">gtk-missing-image</property>
